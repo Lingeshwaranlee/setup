@@ -1,0 +1,51 @@
+-------------------------------create a seperate folder for backend project in desktop-----------------------------------------------
+
+step-1---------> npm init -y
+
+step-2---------> npm install express
+
+step-3--------->ES6 import & exports
+              "main":"index.js"
+              "type":"module"
+-----------------------------------------EXPRESS JS SET-UP in node----------------------------------------------------------------------------
+step-4---------> import  express  from "express"; 
+
+step-5---------> {"start":"node index.js"}
+
+step-6--------->"main":"index.js"
+                "start":"node index.js"  both must be same
+
+step-7--------->  npm install --save-dev nodemon  -----(to automatically restarts the server after saving)
+
+step-8--------->  npm run dev
+------------------------------------------MONGODB-setup in node---------------------------------------------------------------------------
+step-9--------->npm i mongodb
+
+step-10---------> create connection between node and mongodb
+                      const MONGO_URL = "mongodb://localhost";
+                      async function createConnection()
+                      {const client = new MongoClient(MONGO_URL);
+                      await client.connect();
+                      console.log("Mongo is connected ✌️😊");
+                         return client;
+                      }
+        const client = await createConnection();
+
+step-11--------->   to get a movie from mongo db server
+                     app.get("/movies", async function(request,response){
+                     const movies = await client.db("b30wd").collection("movies").find({}).toArray();
+                     response.send(movies)
+                     });
+
+step-12-------->The toArray() method returns an array that contains all the documents from a cursor
+
+
+
+
+
+
+
+
+
+
+

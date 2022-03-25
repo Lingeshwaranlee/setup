@@ -1,0 +1,42 @@
+step-1------> npx create-react-app my-app
+
+----------------------------------------------REACT-ROUTER-DOM---------------------------------------------------------------------
+
+step-2------> npm i react-router-dom@5
+
+step-3------>import { BrowserRouter as Router } from 'react-router-dom';
+             import { Route, Switch } from 'react-router-dom';
+             import { Link } from 'react-router-dom';
+
+
+--------------------------------------------MATERIAL UI-------------------------------------------------------------------
+
+
+step-4------>npm install @mui/material @emotion/react @emotion/styled
+
+step-5------>npm install @mui/material @mui/styled-engine-sc styled-components
+
+step-6------>npm install @mui/icons-material
+
+step-7------><link
+             rel="stylesheet"
+             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+             />
+
+step-8------><link
+             rel="stylesheet"
+             href="https://fonts.googleapis.com/icon?family=Material+Icons"
+             />
+
+--------------------------------------------------FONTAWESOME----------------------------------------------------------------------
+
+step-9------>npm i --save @fortawesome/fontawesome-svg-core
+             npm install --save @fortawesome/free-solid-svg-icons
+             npm install --save @fortawesome/react-fontawesome
+
+step-10------>
+
+step-11------>
+
+step-12------>
+
