@@ -5,17 +5,17 @@ step-1---------> npm init -y
 step-2---------> npm install express
 
 step-3--------->ES6 import & exports
-              "main":"index.js"
-              "type":"module"
+              "main":"index.js",
+              "type":"module",
 -----------------------------------------EXPRESS JS SET-UP in node----------------------------------------------------------------------------
 step-4---------> import  express  from "express"; 
 
-step-5---------> {"start":"node index.js"}
+step-5---------> "start":"node index.js",
 
 step-6--------->"main":"index.js"
                 "start":"node index.js"  both must be same
 
-step-7--------->  npm install --save-dev nodemon  -----(to automatically restarts the server after saving)
+step-7--------->  npm install --save-dev nodemon ,   "dev": "nodemon index.js", -----(to automatically restarts the server after saving)
 
 step-8--------->  npm run dev
 ------------------------------------------MONGODB-setup in node---------------------------------------------------------------------------
@@ -31,16 +31,35 @@ step-10---------> create connection between node and mongodb
                       }
         const client = await createConnection();
 
-step-11--------->   to get a movie from mongo db server
+step-11---------->import { MongoClient } from "mongodb";
+
+
+
+step-12--------->   to get a movie from mongo db server
                      app.get("/movies", async function(request,response){
                      const movies = await client.db("b30wd").collection("movies").find({}).toArray();
                      response.send(movies)
                      });
 
-step-12-------->The toArray() method returns an array that contains all the documents from a cursor
+step-13-------->The toArray() method returns an array that contains all the documents from a cursor
 
 
+step-14--------> create a data using post------------app.use(express.json());
 
+                app.post("/movies", async function(request,response){
+                 const data=request.body; 
+                     const result = await client.db("b30wd").collection("movies").insertMany(data);
+                     response.send(result)
+                     });
+      
+step-15--------> get a element by id
+
+                 app.get('/foods/:id',async function(request,response){
+                 console.log(request.params)
+                 const {id} = request.params;
+                 const food = await client.db("b30wd").collection("foods").findOne({ id: id }); 
+                 response.send(food)
+                 });
 
 
 
